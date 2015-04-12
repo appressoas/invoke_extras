@@ -16,7 +16,8 @@ is most likely to add the following to your requirements.txt:
 
 
 ## Requirements
-Requires python 3. Only tested with python 3.4.
+Requires python 3. Only tested with python 3.4. This has been tested on OSX and Linux, and it
+will most likely not work on Windows without some patching.
 
 
 ## Development

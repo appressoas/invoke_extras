@@ -2,7 +2,7 @@ import os
 from os.path import expanduser, abspath
 import subprocess
 from unittest import TestCase
-from invoke_extras.context_managers import shell_env, lcd
+from invoke_extras.context_managers import shell_env, cd
 
 
 class TestShellEnv(TestCase):
@@ -19,17 +19,17 @@ class TestShellEnv(TestCase):
             self.assertEqual(output, b'test')
 
 
-class TestLcd(TestCase):
-    def test_lcd(self):
+class TestCd(TestCase):
+    def test_cd(self):
         homedirectory = abspath(expanduser("~"))
         self.assertNotEqual(os.getcwd(), homedirectory)
-        with lcd(homedirectory):
+        with cd(homedirectory):
             self.assertEqual(os.getcwd(), homedirectory)
         self.assertNotEqual(os.getcwd(), homedirectory)
 
-    def test_lcd_works_with_child_process(self):
+    def test_cd_works_with_child_process(self):
         # This test requires a posix environment to work
         homedirectory = abspath(expanduser("~"))
-        with lcd(homedirectory):
+        with cd(homedirectory):
             output = subprocess.check_output('pwd', shell=True).strip()
             self.assertEqual(output, homedirectory.encode('utf-8'))

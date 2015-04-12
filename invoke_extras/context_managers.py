@@ -5,7 +5,14 @@ import os
 @contextmanager
 def shell_env(**extra_environment_variables):
     """
-    Implementation of shell_env from Fabric.
+    Context manager for setting shell environment variables for wrapped commands.
+
+    Examples:
+
+        Set the TMPDIR environment variable to configure a gcc execution::
+
+            with shell_env(TMPDIR="info"):
+                run("gcc helloworld.c")
     """
     original_environ = dict(os.environ)
     os.environ.update(extra_environment_variables)
@@ -15,11 +22,20 @@ def shell_env(**extra_environment_variables):
 
 
 @contextmanager
-def lcd(directory):
+def cd(path):
     """
-    Implementation of lcd from Fabric.
+    Context manager for running for wrapped commands with a different working
+    directory.
+
+    Examples:
+
+        Run ``find`` in the HOME directory::
+
+            with cd(os.path.expanduser('~'):
+                run('find . -name "*.py"')
+
     """
-    original_directory = os.getcwd()
-    os.chdir(directory)
+    original_path = os.getcwd()
+    os.chdir(path)
     yield
-    os.chdir(original_directory)
+    os.chdir(original_path)
