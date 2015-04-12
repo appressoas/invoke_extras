@@ -8,8 +8,7 @@ def shell_env(**extra_environment_variables):
     Implementation of shell_env from Fabric.
     """
     original_environ = dict(os.environ)
-    temporary_environ = dict(os.environ)
-    temporary_environ.update(extra_environment_variables)
+    os.environ.update(extra_environment_variables)
     yield
     os.environ.clear()
     os.environ.update(original_environ)

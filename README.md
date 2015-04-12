@@ -13,3 +13,20 @@ is most likely to add the following to your requirements.txt:
 ```
 -e git://github.com/appressoas/invoke_extras.git#egg=invoke_extras
 ```
+
+
+## Requirements
+Requires python 3. Only tested with python 3.4.
+
+
+## Development
+Checkout the git repo, and run:
+```
+$ mkvirtualenv invoke_extras
+$ pip install -r requirements.txt
+```
+
+Run the tests with:
+```
+$ python setup.py test
+```

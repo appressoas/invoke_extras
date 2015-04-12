@@ -1,4 +1,8 @@
+import ez_setup
+ez_setup.use_setuptools()
+
 from setuptools import setup, find_packages
+
 
 setup(
     name='invoke_extras',
@@ -11,6 +15,7 @@ setup(
     packages=find_packages(),
     zip_safe=True,
     include_package_data=True,
+    test_suite='invoke_extras.tests',
     install_requires=[
         'invoke',
     ],

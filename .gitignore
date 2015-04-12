@@ -56,6 +56,9 @@ docs/_build/
 # PyBuilder
 target/
 
+# The egg downloaded by ez_setup.py.
+setuptools-*.zip
+
 # Ignore user-specific pycharm settings
 .idea/workspace.xml
 .idea/tasks.xml
