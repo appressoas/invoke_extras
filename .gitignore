@@ -55,3 +55,7 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Ignore user-specific pycharm settings
+.idea/workspace.xml
+.idea/tasks.xml
